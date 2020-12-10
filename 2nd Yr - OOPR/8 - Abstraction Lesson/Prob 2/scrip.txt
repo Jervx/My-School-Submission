@@ -1,0 +1,231 @@
+So this is our Database. We have 5 tables, Customer, Supplier, Products, Transaction & Transaction Details
+
+Me & my classmate will perform CRUD Operation in this database with 5 example each.
+
+CRUD is a short term for 
+Create,
+Read,
+Update,
+Delete.
+
+
+So first im going to do is the Create Operatiom meaning I am going to populate all the tables with data.
+
+The table that im going to populate first are the independent tables which dont rely on the data of other table, these table are Supplier & Customer table. They don't have Foreign key which means they don't need data of the other tables.
+
+::1
+Here is the First Example
+Im going to fill first the Supplier Table with 4 supplier, so this is the command
+
+/* DONT READ SQL */
+insert into Suppliers(Supplier,Supplier_Contact)
+values
+('Avon QC Branch','888-2130'),
+('Avon Castro Branch','528-969'),
+('Avon Makati Branch','330-525'),
+('Avon Novaliches Branch','555-555');
+
+"Execute and it's done."
+
+
+::2
+"Next is the Customer table, im going to create 5 customers, so this is the command for that"
+
+
+/* DONT READ SQL */
+insert into Customer(Customer_FirstName,Customer_LastName,Customer_Contact,Customer_Address)
+values
+('Elvira','Atinaja','09391456816','Quezon City'),
+('Andrei','Quemado','09391812567','Caloocan City'),
+('Ailyn','Gener','09382598395','Bulacan'),
+('Arian','Sarte','09251927521','Caloocan City'),
+('Russel','Viernes','09969318869','Caloocan City');
+
+"Execute and Bam!"
+
+::3
+"Next table to populate is the Product Table.
+So this is the SQL"
+
+/* DONT READ SQL */
+insert into Products(Product_Code,Product_Name,Product_Category,Product_Price,Supplier)
+values
+('1334462','PAULA UW BRA 36B','Intimate Apparel',380.00,'Avon QC Branch'),
+('1320468','ARIELLA UNDERWIRE BRA 36B','Intimate Apparel',380.00,'Avon Castro Branch'),
+('1305515','BILLIE UNDERWIRE BRA 36B','Intimate Apparel',380.00,'Avon Makati Branch'),
+('1347425','AC ROYAL JELLY HBL 750ML','Body & Toiletries',279.00,'Avon Novaliches Branch'),
+('1257673','AVCARE ANTI-BACTERIAL BW250ML','Body & Toiletries',149.00,'Avon Castro Branch'),
+('1370311','FF ULTRA GLUTA ROD 75ML','Feelin'' Fresh',99.00,'Avon QC Branch'),
+('1306730','SSS KOJIC BAR SOAP 90G','Body & Toiletries',59.00,'Avon QC Branch'),
+('1328053','FF CLSSC FLORAL ROD 40ML','Feelin'' Fresh',79.00,'Avon Makati Branch'),
+('1334788','3PC KITCHEN TOOL SET','Home & Kitchen',299.00,'Avon Makati Branch'),
+('1318537','KELVIN DIGITAL WATCH','Men''s Store',1099.00,'Avon Castro Branch');
+
+"We already created data for the supplier so we can now reference those data here in the product table, so lets execute this.
+
+Okay success!"
+
+
+::4
+"Next naman is for the Transaction table, this table will contain records of transaction with less details. So assuming that the 5 customer already had made a transaction so i am going to put 5 record on the transaction table"
+
+"This is the SQL"
+
+/* DONT READ SQL */
+insert into Transactions(Customer_ID,Transaction_Date)
+values
+(1,'2020-11-07 14:56:46'),
+(2,'2020-11-04 9:33:05'),
+(3,'2020-10-29 10:01:59'),
+(4,'2020-10-23 17:09:15'),
+(5,'2020-10-31 0:30:53');
+
+
+"Execute, okay done"
+
+
+
+
+::5
+"So the last example"
+"im going to create a data for the Transaction Details table. This table is the more detailed record of Transaction Table, so this is the SQL command for that"
+
+/* DONT READ SQL */
+insert into [Transaction Details](Transaction_No,Product_Code,Qty,Unit_Price,Discount)
+values
+(1,'1334462',1,380.00,380.00),
+(1,'1320468',1,380.00,0.00),
+(1,'1305515',1,380.00,0.00),
+(2,'1347425',1,279.00,0.00),
+(3,'1257673',1,149.00,0.00),
+(3,'1370311',1,99.00,0.00),
+(4,'1306730',1,59.00,0.00),
+(4,'1328053',1,79.00,0.00),
+(5,'1334788',1,299.00,0.00),
+(5,'1318537',1,1099.00,0.00);
+
+"And we are done for the Create Operation"
+
+
+---TO START REC PC--
+
+=====================================================================================
+"Next i am going to do is Read Operation, simply reading or extracting desired data from the database"
+
+
+::1
+"So this First example im going to make sure that i poppulated all the table correctly so im going to read them all, this is the SQL"
+
+select * from Suppliers;
+select * from Customer;
+select * from Products;
+select * from Transactions;
+select * from [Transaction Details];
+
+"Execute and let's check every result"
+"So yeah we retrieve the data and that's the first example on Read operation"
+
+
+::2
+"This 2nd example, I wanted to select Transaction and show all record but with more details let say instead of customer id we show customer name, so this is the sql for that"
+
+Select t.Transaction_No, c.Customer_FirstName, t.Transaction_Date
+from Transactions t
+inner join Customer c on t.Customer_ID = c.Customer_ID
+
+"Execute & And boom, simple as that we can now see the customer name instead of customer ID"
+
+
+::3
+"Next the 3rd example. Let say the owner of this database wanted to know how many qty have been sold for each products, this means that we are dealing with Product table and the Transaction Details Table. 
+
+Para makuha yung desired output gumamit ako ng join and agregate function. so this is the SQL for that"
+
+/* DONT READ SQL */
+Select p.Product_Name, sum(td.qty) as Nabenta
+from Products p
+right join [Transaction Details] td on p.Product_Code = td.Product_Code
+group by p.Product_Code,p.Product_Name
+
+"execute and.. ayan that is the desired data na gusto nating makita"
+
+::4
+"Next example naman is to help the owner to know kung ilan yung kinita nya per Transaction, so this is
+the sql for that"
+
+/* DONT READ SQL */
+Select td.Transaction_NO, Concat('Php ',(SUM(td.Unit_Price * td.Qty)-SUM(td.Discount))) as Kita, Concat('Php ',SUM(td.Discount)) as Discount
+from [Transaction Details] td
+group by td.Transaction_NO
+
+"So we retrieve the data that show how much Arian earn in each transaction"
+
+
+::5
+"How about how much Arian earned in each Month"
+"So i still use function inorder to get desired result, so this is the sql"
+
+/* DONT READ SQL */
+Select DATENAME(month,t.Transaction_Date),
+       Concat('Php ',(SUM(td.Unit_Price * td.Qty)-SUM(td.Discount))) as Kita
+from Transactions t
+inner join [Transaction Details] td on t.Transaction_No = td.Transaction_No
+group by DATENAME(month,t.Transaction_Date)
+
+
+"So ayan, makikita na ni Arian kung magkano ang kinita nya each month"
+
+=========================================================================
+
+
+"Alright so now i am going to do Update Operations"
+
+
+::1
+"So this first example, mis Ailyn Gener wanted to change her contact & address so i'm going to do an update for that. So this is the sql command"
+
+
+update Customer
+set Customer_Contact = '09991612412',
+    Customer_Address = 'Norzagaray'
+where Customer_ID = 3;
+
+"Execute & let's check Ms Ailyn's Information. Okay its updated!"
+
+
+
+::2
+"2nd example is about the owner of the database wanted to change Quezon City into shorter one like QC"
+So This is the SQL"
+
+update Customer
+set Customer_Address = 'CC'
+where Customer_Address = 'Caloocan City';
+
+"Execute & Yup all Customer wich had an address of Quezon City is now QC"
+
+
+::3
+"3rd example naman is letsay papaiklin naman yung Supplier names example Avon Castro Branch Into
+ACB, so hindi tayo pwede mag update agad agad kasi naka reference yung product table sa Supplier so lets disable first the Foreign Key Constraint, so this is the command for the fk constraint"
+
+ALTER TABLE Products
+NOCHECK CONSTRAINT FK__Products__Suppli__286302EC
+
+
+::4
+"4th example update na natin yung Supplier & Products Table and this is the sql"
+update Suppliers
+set Supplier = 'ACB'
+where Supplier = 'Avon Castro Branch'
+
+"Execute, and nice, naupdate successfully so check natin."
+"Ok Supplier is updated"
+"Ok nice Product supplier names are also updated"
+
+::5
+"Update or Enable na ulit natin yung Foreign key constraint ng Product table"
+ALTER TABLE Products
+CHECK CONSTRAINT FK__Products__Suppli__286302EC
+
+"Okay!, So that's it for the Update Operations"
