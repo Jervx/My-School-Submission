@@ -1,7 +1,11 @@
 ### 🐾 My School Submissions 🐾
 
+       
+        
         -  .:  : '     *        +  *      `: :       * : '          +           +  *           %     °  %    :' :     : ' 
         +   *   Jervx           %  :            `:::      : : '    °     *     :'  Jervx  * : '  `'      :`: +  *     : ' 
+        
+        
     
 **⏳ Some files || Contents are Groupings so shoutout sa mga ka groupmates XD ⏳**
 
