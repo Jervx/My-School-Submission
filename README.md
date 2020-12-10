@@ -1,4 +1,4 @@
-<center><p1> 🐾 My School Submissions 🐾 <p1></center>
+# 🐾 My School Submissions 🐾 
 
        
         
