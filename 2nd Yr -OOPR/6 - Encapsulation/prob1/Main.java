@@ -1,23 +1,52 @@
-package Encapsulation.prob1;
 import java.util.Scanner;
-/* 🍇 Jervx 🍇 */
-class Main{
-    public static void main(String [] jervx){
-        Scanner inpt = new Scanner(System.in);
 
-        Television tv = new Television(inpt.next(), inpt.nextDouble(), (inpt.nextInt() == 1?"Smart":"Non-Smart"));
+class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
         
-        int op = inpt.nextInt();
-        while(op-- > 0){
-            int a = inpt.nextInt();
-            if(a == 1) tv.volumeUp();
-            else if(a == 2) tv.volumeDown();
-            else if(a == 3) tv.channelUp();
-            else if(a == 4) tv.channelDown();
-            else if(a == 5) System.out.println(tv.toString());
-            else if(a == 6) tv.power();
+        int mode = sc.nextInt();
+        
+        Date date = null;
+        if (mode == 1) {
+        	date = new Date();
+        } else if (mode == 2) {
+            int day = sc.nextInt();
+            int month = sc.nextInt();
+            int year = sc.nextInt();
+            date = new Date(day, month, year);
         }
-
-        /*Testcase 1 :  Philips 23000 2 9 1 1 1 2 3 3 3 4 5 */
+        
+        int m = sc.nextInt();
+        
+        for (int ctr = 0; ctr < m; ctr++) {
+            int operation = sc.nextInt();
+            
+            if (operation == 1) {
+                int day = sc.nextInt();
+                date.setDay(day);
+            } else if (operation == 2) {
+                int month = sc.nextInt();
+                date.setMonth(month);
+            } else if (operation == 3) {
+                int year = sc.nextInt();
+                date.setYear(year);
+            } else if (operation == 4) {
+                int day = sc.nextInt();
+                int month = sc.nextInt();
+                int year = sc.nextInt();
+                
+                date.setDate(day, month, year);
+            } else if (operation == 5) {
+                System.out.println(date.getDay());
+            } else if (operation == 6) {
+                System.out.println(date.getMonth());
+            } else if (operation == 7) {
+                System.out.println(date.getYear());
+            } else if (operation == 8) {
+                System.out.println(date.toString());
+            } else if (operation == 9) {
+                System.out.println(date.dayOfTheWeek());
+            }
+        }
     }
 }

@@ -1,71 +1,68 @@
-# 1. Appliance and TV
+# 1. Date
 
 **by CodeChum**
 
-Create a class called Appliance. An appliance simply has a:
+Create a new file called Date.java and construct a Date class that models a calendar date with day, month and year. It contains the following members:
 
-    brand (a text)
-    a cost (a monetary value)
-    a power status (ON or OFF)
-
-Power status, brand and cost should not be accessible out the class or its hierarchy of inheritance.
-
-
-It has one constructor that accepts a string and double for the brand and cost respectively (prints "Appliance Constructor" as well). It sets the power status to OFF.
-
-
-Apart from the getters, it also has two public methods, power(), and toString(). power() turns on the appliance if it is off, otherwise, if it is on, it turns the appliance off. toString() simple returns a String object representing the Appliance in this format ("Brand: xxxx, Cost: PhP xxxx.xx, Power: xx"). 
+    3 private integer instance variables: day, month (1 - 12), and year (4-digit)
+    a default constructor which will set the date to 01/01/1972. When called, this also prints the string "Default Constructor"
+    an overloaded constructor that takes in the day, month, and year as arguments. When called, this also prints the string "Overloaded Constructor"
+    public getters and setters for the private instance variables
+    public void setDate(int day, int month, int year) - sets the day, month, and year based on the arguments
+    public String toString() - returns "DD/MM/YYYY", with leading zero for DD and MM if applicable (note: return the string and do not display it from the method itself)
+    public Day dayOfTheWeek() - returns the day of the week (MON, TUE, WED, THU, FRI, SAT, SUN) for the date. Create an enum Day to handle this. Follow the formula below for this.
 
 
-Create another class called Television. Television is an Appliance. It only has the following additional private attributes:
+To get the day of the week, one can make use of the JD (Julian Day). Based on the given date, Y M D, perform the following computations:
 
-    type (whether Smart or Non-Smart)
-    volume (0 - 100)
-    channel (1 - 100)
-
-*It should have the following methods:*
-
-    getters
-    void volumeUp() - increases the volume by 1 (possible only when TV is ON)
-    void volumeDown() - decreases the volume by 1 (possible only when TV is ON)
-    void channelUp() - increases the channel by 1 (possible only when TV is ON)
-    void channelDown() - decreases the channel by 1 (possible only when TV is ON)
-    String toString() - overriding Appliance's. It should include type, volume, and channel in this format ("Brand: xxxx, Cost: PhP xxxx.xx, Power: xx, Type: xxxx, Volume: xx, Channel: xx"). 
+    If the month is January or February, subtract 1 from the year to get a new Y and add 12 to the month to get a new M.
+    Dropping the fractional part of all results of all multiplications and divisions, let:
+        A = Y / 100
+        B = A / 4
+        C = 2 - A + B
+        E = 365.25 x (Y + 4716)
+        F = 30.6001 x (M + 1)
+        JD = C + D + E + F - 1524.5
+    The day of the week is JD % 7 (notice that JD ends in .5. Investigate this properly to get the correct day of the week)
 
 
-A lone constructor is to be implemented with a type, brand, and cost as an argument. It sets the volume to 0 and channel to 1. And it prints "Television Constructor" as well. 
+**Note:** A Main.java file which contains the main method is already created for you. Do not edit that file. Just create your own Date.java file. But do observe how this has been created because for the next problems, it'll be you who will create the Main file as well.
 
 **Input Format**
 
-The first line contains all arguments for creating a Television object. The next line contains m which is the number of operations. The following lines are the m operations.  For the type, 1 is used for Smart, 2 for Non-Smart. The operations are described below:
+The first line contains an integer which is either 1 or 2. If it is a 1, it means to create a Date via the default constructor. If it is a 2, 3 integers follow in the next line representing the day, month, and year of the Date to be created. This is then followed by a number m representing the number of operations to be performed followed by the operations themselves as specified below:
+    1 - setDay
+    2 - setMonth
+    3 - setYear
+    4 - setDate
+    5 - getDay
+    6 - getMonth
+    7 - getYear
+    8 - toString
+    9 - dayOfTheWeek
 
-    1 - volumeUp
-    2 - volumeDown
-    3 - channelUp
-    4 - channelDown
-    5 - toString
-    6 - power
+For operations 1, 2, 3, one integer follows. For setDate, 3 integers follow (D M Y). For the rest of the operations, no other inputs follow.
 
-Input Sample
+**Input Sample**
 
-    Philips 23000 2
+    1
+    7
+    8
     9
-    1
-    1
-    1
-    2
-    3
-    3
-    3
-    4
-    5
+    1 20
+    2 8
+    3 1980
+    8
+    9
 
 **Output Format**
 
-    Apart from the outputs of the constructors, only operation 5 prints an output. It prints the String toString returns.
+The default Constructor should output "Default Constructor", and the overloaded constructor should output "Overloaded Constructor". All the setter operations will not output anything. For the getter operations (5 - 7), the values they return must be printed. Operations 8 and 9 should print their outputs as well.
 
 **Output Sample**
 
-    Appliance Constructor
-    Television Constructor
-    Brand: Philips, Cost: PhP 23000.00, Power: OFF, Type: Non-Smart, Volume: 0, Channel: 1
+    Default Constructor
+    01/01/1972
+    SAT
+    20/08/1980
+    WED
