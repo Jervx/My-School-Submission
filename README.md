@@ -1,4 +1,4 @@
-### 🐾 My School Works 🐾
+### 🐾 My School Submissions 🐾
 
         -  .::'     *      :::        `::   +   *   :  `::   +  *    %     °   °     * %    :' 
            +   *   Jervx           %  :     `::         +   *  °     * %    :'  Jervx  -  `'   :      .. 
