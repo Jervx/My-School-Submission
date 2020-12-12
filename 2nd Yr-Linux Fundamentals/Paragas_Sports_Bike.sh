@@ -80,6 +80,7 @@ if [[ $username == "jervx" && $pcode == "helloworld" ]]
 		then
 			echo "You Payed the exact ammount :)"
 	else
+		clear
 		echo "____________________ Insufficient Payment :( ____________________________"
 		exit
 	fi

@@ -1,4 +1,5 @@
 class Circle extends Shape{
+
     private int Radius;
 
     public Circle(int Radius, String color, boolean filled){
@@ -7,14 +8,17 @@ class Circle extends Shape{
     }
 
     @Override
-    public double area() { return Math.PI * Radius * Radius; }
+    public double area(){ return Math.PI * Radius * Radius; }
 
     @Override
-    public double perimeter() { return 0; }
+    public double perimeter(){ return 2 * Math.PI * Radius; }
 
     @Override
     public String toString(){
-        String areaChecked = (area() % 1 == 0)? String.format("%d",(int)area()) : String.format("%.2f",area());
-        return String.format("Circle: radius: %d\nArea: %s%s",Radius,areaChecked,filled?"\nColor: "+color:"");
+        String areaChecked = (area() % 1 == 0)? String.format("%d",(int)area()):String.format("%.2f",area());
+        String perimeterChecked = perimeter() % 1 == 0? String.format("%d",(int)perimeter()) : String.format("%.2f",perimeter());
+        String colored = filled? "\nColor: "+color:"";
+        return String.format("Circle: radius: %d\nArea: %s\nPerimeter: %s%s",Radius,areaChecked,perimeterChecked,colored);
     }
+
 }
