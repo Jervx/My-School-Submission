@@ -42,9 +42,9 @@ class Main{
                         numbirsXD.push(kuhaUletXD / kuhaXD);
                     }
                 }   
-                System.out.println("Output: "+numbirsXD.pop());
+                System.out.println(numbirsXD.pop());
             }catch(Exception e){
-                System.out.println("Output: "+e.getMessage());
+                System.out.println(e.getMessage());
             }
         }
 
