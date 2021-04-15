@@ -22,4 +22,4 @@
         
 **🔍 NOTE 🔍**
 
-  ```The Programming Problems you may find are not mine/ours, only the codes/Solutions to the problems are mine/ours```
+  ```The Programming Problems you may find is not mine/ours, only the codes/Solutions to the programming problems```
