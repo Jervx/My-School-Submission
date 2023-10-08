@@ -1,0 +1,36 @@
+                                  HIERARCHY
+
+                              Store owned and operated
+                                       by LIMUEL D
+                              Lot 1A BLK 69 Bristol ST.
+                            Fairview North, Quezon City
+
+                                4/28/2020  3:02:40 PM
+
+RCPT # 1
+                 STORE #HIERARCHY
+STAFF # zalven
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+piatos(2)--------------------------------26
+palmolive(7)-----------------------------42
+rebisco(3)-------------------------------30
+coke(5)----------------------------------50
+Robust(5)--------------------------------550
+skyflakes(2)-----------------------------16
+eyeglass(3)------------------------------150
+
+_________________________________________________
+VATable                                        864
+TAX                                               103.68
+TOTAL                                          967.68
+CASH                                           1000
+
+_________________________________________________
+CHANGE                                   32.3200000000001
+_________________________________________________
+Regalado hights
+091919919191991
+HPCS
+SALE ngayon subscribe lng kay pewdiepie
+ENJOY
