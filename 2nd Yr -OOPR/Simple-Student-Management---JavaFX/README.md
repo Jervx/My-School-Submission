@@ -3,11 +3,11 @@
   Simple Student Management App for OOPR2 Final Requirements
 
 ### UI
-![Login](https://raw.githubusercontent.com/Jervx/Simple-Student-Management---JavaFX/main/SS/login-animated.gif)
-![Table & Search](https://raw.githubusercontent.com/Jervx/Simple-Student-Management---JavaFX/main/SS/table%20%26%20search.gif)
-![Add New Student](https://raw.githubusercontent.com/Jervx/Simple-Student-Management---JavaFX/main/SS/add-animated.gif)
-![Update Student](https://raw.githubusercontent.com/Jervx/Simple-Student-Management---JavaFX/main/SS/update%20-%20animated.gif)
-![Delete Student](https://raw.githubusercontent.com/Jervx/Simple-Student-Management---JavaFX/main/SS/delete%20-%20animated.gif)
+![Login](https://github.com/Jervx/My-School-Submission/blob/2ff41bf275c90a7c3c4b13a3524a39dfad66df72/2nd%20Yr%20-OOPR/Simple-Student-Management---JavaFX/SS/login-animated.gif)
+![Table & Search](https://github.com/Jervx/My-School-Submission/blob/2ff41bf275c90a7c3c4b13a3524a39dfad66df72/2nd%20Yr%20-OOPR/Simple-Student-Management---JavaFX/SS/table%20%26%20search.gif)
+![Add New Student](https://github.com/Jervx/My-School-Submission/blob/2ff41bf275c90a7c3c4b13a3524a39dfad66df72/2nd%20Yr%20-OOPR/Simple-Student-Management---JavaFX/SS/add-animated.gif)
+![Update Student](https://github.com/Jervx/My-School-Submission/blob/2ff41bf275c90a7c3c4b13a3524a39dfad66df72/2nd%20Yr%20-OOPR/Simple-Student-Management---JavaFX/SS/update%20-%20animated.gif)
+![Delete Student](https://github.com/Jervx/My-School-Submission/blob/2ff41bf275c90a7c3c4b13a3524a39dfad66df72/2nd%20Yr%20-OOPR/Simple-Student-Management---JavaFX/SS/delete%20-%20animated.gif)
 
 #### Members
   Mark Bryan Lorenzo
